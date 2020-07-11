@@ -6,7 +6,7 @@ const Book = props => {
 
     return(
         <div>
-            <img src={bookDeets.imageLinks.thumbNail} alt='Book cover'/>
+            <img src={bookDeets.imageLinks.smallThumbnail} alt='Book cover'/>
             <p>{bookDeets.title}</p>
             {bookDeets.authors !== undefined && (
                 <p>{bookDeets.authors[0]}</p>
