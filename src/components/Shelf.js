@@ -9,12 +9,14 @@ const Shelf = props => {
     return(
         <div>
             <h3>{props.shelfDeets.title}</h3>
-            {
-                props.books.filter(book => book.shelf === props.shelfDeets.name)
-                .map(shelfBook => (
-                    <Book bookDeets={shelfBook}/>
-                ))
-            }
+            <div className='shelf-books-container'>
+                {
+                    props.books.filter(book => book.shelf === props.shelfDeets.name)
+                    .map(shelfBook => (
+                        <Book key={shelfBook.id} bookDeets={shelfBook}/>
+                    ))
+                }
+            </div>
         </div>
     )
 }

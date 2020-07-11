@@ -32,7 +32,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">My Reads</header>
         <ShelfScreen shelfTypes={this.state.shelves} shelvedBooks={this.state.shelvedBooks}/>
-        <SearchScreen />
+        {this.state.shelvedBooks.length === 0 && (
+          <SearchScreen />
+        )}
       </div>
     )
   }
