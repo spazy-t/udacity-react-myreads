@@ -5,7 +5,7 @@ const Book = props => {
     const { bookDeets } = {...props}
 
     return(
-        <div>
+        <div className='book'>
             <img src={bookDeets.imageLinks.smallThumbnail} alt='Book cover'/>
             <p>{bookDeets.title}</p>
             {bookDeets.authors !== undefined && (
