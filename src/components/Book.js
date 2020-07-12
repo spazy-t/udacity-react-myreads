@@ -10,7 +10,7 @@ class Book extends Component {
     updateShelf = (newShelf) => {
         const updateDeets = {
             newShelf: newShelf,
-            id: this.props.bookDeets.id
+            book: this.props.bookDeets
         }
         this.props.updateBook(updateDeets)
     }

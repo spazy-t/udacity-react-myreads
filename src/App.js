@@ -25,17 +25,14 @@ class App extends Component {
   //clones the current shelved books and finds the book that matches the one who's shelf has changed
   //then replaces said books' shelf property to the new one and sets the new state to show this
   updateBook = (newDeets) => {
-    let currentlyShelved = [...this.state.shelvedBooks]
-
-    currentlyShelved = currentlyShelved.map(currentBook => {
-      if(currentBook.id === newDeets.id) {
-        currentBook.shelf = newDeets.newShelf
-      }
-      return currentBook
-    })
-
-    this.setState({
-      shelvedBooks: [...currentlyShelved]
+    bookApi.update(newDeets.book, newDeets.newShelf)
+    .then(() =>
+      bookApi.getAll()
+    )
+    .then(books => {
+      this.setState({
+        shelvedBooks: [...books]
+      })
     })
   }
 
