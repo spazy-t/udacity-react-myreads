@@ -1,18 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-const Book = props => {
-    const { bookDeets } = {...props}
+import Control from './Control'
 
-    return(
-        <div className='book'>
-            <img src={bookDeets.imageLinks.smallThumbnail} alt='Book cover'/>
-            <p>{bookDeets.title}</p>
-            {bookDeets.authors !== undefined && (
-                <p>{bookDeets.authors[0]}</p>
-            )}
-        </div>
-    )
+class Book extends Component {
+
+    //TODO: clean up props referencing
+
+    updateShelf = (newShelf) => {
+        const updateDeets = {
+            newShelf: newShelf,
+            id: this.props.bookDeets.id
+        }
+        this.props.updateBook(updateDeets)
+    }
+
+    render() {
+        return(
+            <div className='book'>
+                <img src={this.props.bookDeets.imageLinks.smallThumbnail} alt='Book cover' />
+                <Control update={this.updateShelf} currentShelf={this.props.bookDeets.shelf} />
+                <p>{this.props.bookDeets.title}</p>
+                {this.props.bookDeets.authors !== undefined && (
+                    <p>{this.props.bookDeets.authors[0]}</p>
+                )}
+            </div>
+        )
+    }
 }
 
 Book.propTypes = {

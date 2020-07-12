@@ -13,7 +13,10 @@ const Shelf = props => {
                 {
                     books.filter(book => book.shelf === shelfDeets.name)
                     .map(shelfBook => (
-                        <Book key={shelfBook.id} bookDeets={shelfBook}/>
+                        <Book
+                            key={shelfBook.id}
+                            bookDeets={shelfBook}
+                            updateBook={props.updateBook} />
                     ))
                 }
             </div>
