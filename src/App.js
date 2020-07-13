@@ -46,7 +46,7 @@ class App extends Component {
           )}
         />
         <Route path={'/search'} render={() => (
-            <SearchScreen updateBook={this.updateBook} />
+            <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
           )}
         />
       </div>

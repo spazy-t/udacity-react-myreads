@@ -1,5 +1,5 @@
 export const Shelves = [
-    {title: 'Want To Read', name: 'wantToRead'},
     {title: 'Currently Reading', name: 'currentlyReading'},
+    {title: 'Want To Read', name: 'wantToRead'},
     {title: 'Read', name: 'read'}
 ]

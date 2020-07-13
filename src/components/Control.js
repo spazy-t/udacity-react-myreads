@@ -3,8 +3,13 @@ import React, { Component } from 'react'
 import { Shelves } from '../globals'
 
 class Control extends Component {
-    state = {
-        currentShelf: 'read'
+    constructor(props) {
+        super(props)
+        this.state = {
+            currentShelf: 'none'
+        }
+        //add extra none option to show it either doesn't belong to a shelf or to remove from a shelf
+        this.shelves = [...Shelves, {title: 'None', name: 'none'}]
     }
 
     componentDidMount() {
@@ -17,7 +22,7 @@ class Control extends Component {
         this.setState({
             currentShelf: evt.target.value
         })
-        
+
         this.props.update(evt.target.value)
     }
 
@@ -25,7 +30,7 @@ class Control extends Component {
         return(
             <div>
                 <select value={this.state.currentShelf} onChange={this.handleChange}>
-                    {Shelves.map(shelf => (
+                    {this.shelves.map(shelf => (
                         <option
                             key={shelf.name}
                             value={shelf.name}>

@@ -33,7 +33,7 @@ class SearchScreen extends Component {
             console.log('error', e)
         })
     }
-
+    //TODO: a way of timeout the input so it's not one character at a time for search
     render() {
         return(
             <div className='search-screen'>
@@ -47,7 +47,11 @@ class SearchScreen extends Component {
                         value={this.state.value} />
                 </form>
                 {this.state.searchedBooks.length !== 0 && (
-                    <BookContainer searchedBooks={this.state.searchedBooks} updateBook={this.props.updateBook}/>
+                    <BookContainer 
+                        searchedBooks={this.state.searchedBooks}
+                        updateBook={this.props.updateBook}
+                        shelfBooks={this.props.shelvedBooks}
+                    />
                 )}
             </div>
         )
@@ -55,7 +59,6 @@ class SearchScreen extends Component {
 }
 
 SearchScreen.propTypes = {
-    //TODO: need this for cross reference?
     shelvedBooks: PropTypes.array
 }
 
