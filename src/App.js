@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route } from 'react-router-dom'
 
 /**Component and api imports */
 import * as bookApi from './BooksApi'
@@ -40,10 +41,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">My Reads</header>
-        <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
-        {this.state.shelvedBooks.length === 0 && (
-          <SearchScreen />
-        )}
+        <Route exact path='/' render={() => (
+            <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
+          )}
+        />
+        <Route path={'/search'} render={() => (
+            <SearchScreen updateBook={this.updateBook} />
+          )}
+        />
       </div>
     )
   }

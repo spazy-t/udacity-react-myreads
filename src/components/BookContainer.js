@@ -10,7 +10,11 @@ const BookContainer = props => {
     return(
         <div>
             {props.searchedBooks.map((book, index) => (
-                <Book key={index} bookDeets={book} />
+                <Book
+                    key={index}
+                    bookDeets={book}
+                    updateBook={props.updateBook}
+                />
             ))}
         </div>
     )

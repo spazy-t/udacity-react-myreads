@@ -30,7 +30,8 @@ class Book extends Component {
 }
 
 Book.propTypes = {
-    bookDeets: PropTypes.object.isRequired
+    bookDeets: PropTypes.object.isRequired,
+    updateBook: PropTypes.func.isRequired
 }
 
 export default Book

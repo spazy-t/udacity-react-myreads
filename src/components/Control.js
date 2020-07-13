@@ -17,6 +17,7 @@ class Control extends Component {
         this.setState({
             currentShelf: evt.target.value
         })
+        
         this.props.update(evt.target.value)
     }
 

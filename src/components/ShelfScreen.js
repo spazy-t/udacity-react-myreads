@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 import Shelf from './Shelf'
 import { Shelves } from '../globals'
@@ -15,6 +16,7 @@ const ShelfScreen = props => {
                     books={props.shelvedBooks}
                     updateBook={props.updateBook} />
             ))}
+            <Link to={'/search'}>Search</Link>
         </div>
     )
 }
