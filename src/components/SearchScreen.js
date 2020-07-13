@@ -33,19 +33,21 @@ class SearchScreen extends Component {
             console.log('error', e)
         })
     }
-    //TODO: a way of timeout the input so it's not one character at a time for search
+    //TODO: a way of timeout the input so it's not one character at a time for search i.e. slow!
     render() {
         return(
             <div className='search-screen'>
-                <h2>Search Screen</h2>
-                <Link to={'/'}>Exit</Link>
-                <form>
-                    <input
-                        type='text'
-                        placeholder='Search Books'
-                        onChange={this.handleChange}
-                        value={this.state.value} />
-                </form>
+                <div className='search-bar'>
+                    <Link to={'/'} id='back-btn'>Exit</Link>
+                    <form id='search-input'>
+                        <input
+                            type='text'
+                            placeholder='Search Books'
+                            onChange={this.handleChange}
+                            value={this.state.value}
+                        />
+                    </form>
+                </div>
                 {this.state.searchedBooks.length !== 0 && (
                     <BookContainer 
                         searchedBooks={this.state.searchedBooks}

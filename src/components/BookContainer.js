@@ -10,8 +10,8 @@ const BookContainer = props => {
     //cross reference searched and shelf books to add shelf property to releveant match in searched books array
     const crossReferencedBooks = props.searchedBooks.map(searchBook => {
         //see if a shelved book matches a book that's in the searched books array
-        const matchedBook = props.shelfBooks.find(shelfBook => 
-            shelfBook.id === searchBook.id    
+        const matchedBook = props.shelfBooks.find(shelfBook =>
+            shelfBook.id === searchBook.id
         )
         //if there is a match set the matched searched array book to have the same shelf property
         if(matchedBook) {
@@ -22,7 +22,7 @@ const BookContainer = props => {
     })
 
     return(
-        <div>
+        <div className='book-container' id='search-book-container'>
             {crossReferencedBooks.map((book, index) => (
                 <Book
                     key={index}

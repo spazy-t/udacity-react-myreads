@@ -8,7 +8,7 @@ import { Shelves } from '../globals'
 const ShelfScreen = props => {
     return(
         <div>
-            <h2>Shelf Screen</h2>
+            <header className="App-header">My Reads</header>
             {Shelves.map((shelf) => (
                 <Shelf
                     key={shelf.name}
@@ -16,7 +16,9 @@ const ShelfScreen = props => {
                     books={props.shelvedBooks}
                     updateBook={props.updateBook} />
             ))}
-            <Link to={'/search'}>Search</Link>
+            <Link to={'/search'}>
+                <button>Search</button>
+            </Link>
         </div>
     )
 }

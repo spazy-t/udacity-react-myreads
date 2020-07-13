@@ -12,17 +12,19 @@ class Book extends Component {
             newShelf: newShelf,
             book: this.props.bookDeets
         }
+        
         this.props.updateBook(updateDeets)
     }
 
+    //TODO: if no thumbnail put in default (via ES6 default argument?) or remove book
     render() {
         return(
             <div className='book'>
                 <img src={this.props.bookDeets.imageLinks.smallThumbnail} alt='Book cover' />
                 <Control update={this.updateShelf} currentShelf={this.props.bookDeets.shelf} />
-                <p>{this.props.bookDeets.title}</p>
+                <p id='title'>{this.props.bookDeets.title}</p>
                 {this.props.bookDeets.authors !== undefined && (
-                    <p>{this.props.bookDeets.authors[0]}</p>
+                    <p id='author'>{this.props.bookDeets.authors[0]}</p>
                 )}
             </div>
         )

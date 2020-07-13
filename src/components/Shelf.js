@@ -8,15 +8,16 @@ const Shelf = props => {
 
     return(
         <div className='shelf'>
-            <h3>{shelfDeets.title}</h3>
-            <div className='shelf-books-container'>
+            <h2>{shelfDeets.title}</h2>
+            <div className='book-container' id='shelf-books-container'>
                 {
                     books.filter(book => book.shelf === shelfDeets.name)
                     .map(shelfBook => (
                         <Book
                             key={shelfBook.id}
                             bookDeets={shelfBook}
-                            updateBook={props.updateBook} />
+                            updateBook={props.updateBook}
+                        />
                     ))
                 }
             </div>
