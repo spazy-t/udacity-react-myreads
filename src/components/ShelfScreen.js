@@ -16,8 +16,8 @@ const ShelfScreen = props => {
                     books={props.shelvedBooks}
                     updateBook={props.updateBook} />
             ))}
-            <Link to={'/search'}>
-                <button>Search</button>
+            <Link to={'/search'} className='search-books'>
+                +
             </Link>
         </div>
     )
