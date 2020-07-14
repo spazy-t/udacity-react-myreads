@@ -21,15 +21,18 @@ const BookContainer = props => {
         return searchBook
     })
 
+    //if a book obj doesn't have a thumbnail image remove it from the list to show / stops error
     return(
         <div className='book-container' id='search-book-container'>
-            {crossReferencedBooks.map((book, index) => (
-                <Book
-                    key={index}
-                    bookDeets={book}
-                    updateBook={props.updateBook}
-                />
-            ))}
+            {crossReferencedBooks.filter(bookWithThumb => bookWithThumb.imageLinks !== undefined)
+                .map((book, index) => (
+                    <Book
+                        key={index}
+                        bookDeets={book}
+                        updateBook={props.updateBook}
+                    />
+                ))
+            }
         </div>
     )
 }

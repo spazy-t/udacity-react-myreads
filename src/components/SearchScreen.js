@@ -14,13 +14,21 @@ class SearchScreen extends Component {
         value: '',
         searchedBooks: []
     }
+
     //called when text entered into input, uses value to search books api then
     //sets state of current value and searched books to pass to books container
     handleChange = (evt) => {
         const targetValue = evt.target.value
         console.log('handleChange', targetValue)
 
-        //TODO: if targetValue is nowt just setState to blanks, no search on booksApi to stop POST error
+        //if search value is empty reset the state to blank and avoid POST error
+        if(targetValue === '') {
+            this.setState({
+                value: '',
+                searchedBooks: []
+            })
+            return
+        }
         
         booksApi.search(targetValue)
         .then((books) => {

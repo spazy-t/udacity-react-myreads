@@ -5,8 +5,6 @@ import Control from './Control'
 
 class Book extends Component {
 
-    //TODO: clean up props referencing
-
     updateShelf = (newShelf) => {
         const updateDeets = {
             newShelf: newShelf,
@@ -16,15 +14,19 @@ class Book extends Component {
         this.props.updateBook(updateDeets)
     }
 
-    //TODO: if no thumbnail put in default (via ES6 default argument?) or remove book
     render() {
+        const { imageLinks, shelf, title, authors } = this.props.bookDeets
+
         return(
             <div className='book'>
-                <img src={this.props.bookDeets.imageLinks.smallThumbnail} alt='Book cover' />
-                <Control update={this.updateShelf} currentShelf={this.props.bookDeets.shelf} />
-                <p id='title'>{this.props.bookDeets.title}</p>
-                {this.props.bookDeets.authors !== undefined && (
-                    <p id='author'>{this.props.bookDeets.authors[0]}</p>
+                <img
+                    src={imageLinks.smallThumbnail}
+                    alt='Book cover'
+                />
+                <Control update={this.updateShelf} currentShelf={shelf} />
+                <p id='title'>{title}</p>
+                {authors !== undefined && (
+                    <p id='author'>{authors[0]}</p>
                 )}
             </div>
         )
