@@ -128,3 +128,9 @@
   grid-area: books;
   margin-top: 30px;
 }
+
+#no-books-found {
+  display: none;
+  line-height: 10em;
+  font-size: 2em;
+}
