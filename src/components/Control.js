@@ -18,18 +18,25 @@ class Control extends Component {
         })
     }
 
+    showOptions = (evt) => {
+        const targetButton = evt.target
+        targetButton.nextSibling.classList.toggle('option-select')
+    }
+
     handleChange = (evt) => {
         this.setState({
             currentShelf: evt.target.value
         })
 
+        evt.target.classList.toggle('option-select')
         this.props.update(evt.target.value)
     }
 
     render() {
         return(
-            <div>
-                <select value={this.state.currentShelf} onChange={this.handleChange}>
+            <div className='book-control'>
+                <button onClick={this.showOptions} />
+                <select className='option-select' value={this.state.currentShelf} onChange={this.handleChange}>
                     {this.shelves.map(shelf => (
                         <option
                             key={shelf.name}
