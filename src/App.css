@@ -121,6 +121,11 @@ footer {
   display: none;
 }
 
+.rating-star:hover {
+  fill: yellow;
+  cursor: pointer;
+}
+
 #title {
   font-weight: bold;
 }

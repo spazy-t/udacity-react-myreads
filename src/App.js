@@ -46,14 +46,16 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' render={() => (
-            <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
+            <div>
+              <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
+              <footer onClick={this.toTop}>To Top</footer>
+            </div>
           )}
         />
         <Route path={'/search'} render={() => (
             <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
           )}
         />
-        <footer onClick={this.toTop}>To Top</footer>
       </div>
     )
   }

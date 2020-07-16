@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Control from './Control'
+import Rating from './Rating'
 
 class Book extends Component {
 
@@ -25,6 +26,7 @@ class Book extends Component {
                     className='book-img'
                 />
                 <Control update={this.updateShelf} currentShelf={shelf} />
+                <Rating />
                 <p id='title'>{title}</p>
                 {authors !== undefined && (
                     authors.map(author => (
