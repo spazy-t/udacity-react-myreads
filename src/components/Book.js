@@ -26,7 +26,9 @@ class Book extends Component {
                 <Control update={this.updateShelf} currentShelf={shelf} />
                 <p id='title'>{title}</p>
                 {authors !== undefined && (
-                    <p id='author'>{authors[0]}</p>
+                    authors.map(author => (
+                        <p id='author'>{author}</p>
+                    ))
                 )}
             </div>
         )
