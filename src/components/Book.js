@@ -22,12 +22,13 @@ class Book extends Component {
                 <img
                     src={imageLinks.smallThumbnail}
                     alt='Book cover'
+                    className='book-img'
                 />
                 <Control update={this.updateShelf} currentShelf={shelf} />
                 <p id='title'>{title}</p>
                 {authors !== undefined && (
                     authors.map(author => (
-                        <p id='author'>{author}</p>
+                        <p key={author} id='author'>{author}</p>
                     ))
                 )}
             </div>

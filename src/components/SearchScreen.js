@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
  */
 import * as booksApi from '../BooksApi'
 import BookContainer from './BookContainer'
+/*Taken from udacity react myreads starter code 16/7/2020
+https://github.com/udacity/reactnd-project-myreads-starter/blob/master/src/icons*/
+import backarrow from '../icons/backarrow.svg'
 
 class SearchScreen extends Component {
     constructor(props) {
@@ -70,7 +73,9 @@ class SearchScreen extends Component {
         return(
             <div className='search-screen'>
                 <div className='search-bar'>
-                    <Link to={'/'} id='back-btn'>Exit</Link>
+                    <Link to={'/'} id='back-btn'>
+                        <img src={backarrow} alt='back arrow' className='back-button' />
+                    </Link>
                     <form id='search-input'>
                         <input
                             type='text'

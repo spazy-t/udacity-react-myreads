@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Shelves } from '../globals'
+import droparrow from '../icons/droparrow.svg'
 
 class Control extends Component {
     constructor(props) {
@@ -35,7 +36,9 @@ class Control extends Component {
     render() {
         return(
             <div className='book-control'>
-                <button onClick={this.showOptions} />
+                <button onClick={this.showOptions}>
+                    <img src={droparrow} alt='drop down arrow' className='drop-arrow' />
+                </button>
                 <select className='option-select' value={this.state.currentShelf} onChange={this.handleChange}>
                     {this.shelves.map(shelf => (
                         <option

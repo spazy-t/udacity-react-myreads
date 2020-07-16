@@ -23,6 +23,11 @@ class App extends Component {
     })
   }
 
+  toTop = (evt) => {
+    evt.preventDefault()
+    window.scrollTo({ top: 0, left:0, behavior: 'smooth' })
+  }
+
   //clones the current shelved books and finds the book that matches the one who's shelf has changed
   //then replaces said books' shelf property to the new one and sets the new state to show this
   updateBook = (newDeets) => {
@@ -48,6 +53,7 @@ class App extends Component {
             <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
           )}
         />
+        <footer onClick={this.toTop}>To Top</footer>
       </div>
     )
   }
