@@ -121,9 +121,27 @@ footer {
   display: none;
 }
 
-/*.rating-star:hover {
+/*.rating-star {
+  fill: yellow;
+}*/
+
+.rating-star:hover {
   fill: yellow;
   cursor: pointer;
+}
+
+/*.rating-star:hover ~ .rating-star {
+  fill: none;
+}
+
+.rating-container {
+  width: 100px;
+  height: 20px;
+  align-self: center;
+}
+
+.rating-container:not(:focus):not(:hover) .rating-star{
+  fill: none;
 }*/
 
 #title {

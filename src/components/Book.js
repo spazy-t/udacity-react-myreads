@@ -38,13 +38,8 @@ class Book extends Component {
                     className='book-img'
                 />
                 <Control update={this.updateShelf} currentShelf={shelf} />
-
-                {averageRating !== undefined &&(
-                    <Rating rating={averageRating} />
-                )}
-                
+                <Rating rating={averageRating} />
                 <p id='title'>{title}</p>
-                
                 {authors !== undefined && (
                     authors.map(author => (
                         <p key={author} id='author'>{author}</p>
