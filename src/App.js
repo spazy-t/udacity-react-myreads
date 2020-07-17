@@ -31,11 +31,13 @@ class App extends Component {
   //clones the current shelved books and finds the book that matches the one who's shelf has changed
   //then replaces said books' shelf property to the new one and sets the new state to show this
   updateBook = (newDeets) => {
-    bookApi.update(newDeets.book, newDeets.newShelf)
+    console.log('update book', newDeets.book)
+    bookApi.update(newDeets.book, newDeets.shelf)
     .then(() =>
       bookApi.getAll()
     )
     .then(books => {
+      console.log('updated books', books)
       this.setState({
         shelvedBooks: [...books]
       })

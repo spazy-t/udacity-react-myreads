@@ -6,9 +6,21 @@ import Rating from './Rating'
 
 class Book extends Component {
 
+    /*updateRating = (newRating) => {
+        console.log('update rating', newRating)
+        const currentBook = this.props.bookDeets
+        currentBook.rating = newRating
+        const updateDeets = {
+            shelf: currentBook.shelf,
+            book: currentBook
+        }
+
+        this.props.updateBook(updateDeets)
+    }*/
+
     updateShelf = (newShelf) => {
         const updateDeets = {
-            newShelf: newShelf,
+            shelf: newShelf,
             book: this.props.bookDeets
         }
         
@@ -16,7 +28,7 @@ class Book extends Component {
     }
 
     render() {
-        const { imageLinks, shelf, title, authors } = this.props.bookDeets
+        const { imageLinks, shelf, title, authors, averageRating } = this.props.bookDeets
 
         return(
             <div className='book'>
@@ -26,8 +38,13 @@ class Book extends Component {
                     className='book-img'
                 />
                 <Control update={this.updateShelf} currentShelf={shelf} />
-                <Rating />
+
+                {averageRating !== undefined &&(
+                    <Rating rating={averageRating} />
+                )}
+                
                 <p id='title'>{title}</p>
+                
                 {authors !== undefined && (
                     authors.map(author => (
                         <p key={author} id='author'>{author}</p>

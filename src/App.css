@@ -121,10 +121,10 @@ footer {
   display: none;
 }
 
-.rating-star:hover {
+/*.rating-star:hover {
   fill: yellow;
   cursor: pointer;
-}
+}*/
 
 #title {
   font-weight: bold;
