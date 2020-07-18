@@ -27,7 +27,10 @@ This app also shows the average rating for a book should it have a rating when r
  
 ## Resources
  
-[Svg-Path-Editor](https://yqnn.github.io/svg-path-editor/) - to create the star svg file (16/7/2020)
+[Svg-Path-Editor](https://yqnn.github.io/svg-path-editor/) - to create the star svg file (16/07/2020)
  
-[Udacity](https://github.com/udacity/reactnd-project-myreads-starter/blob/master/src/icons) - other svg icons taken from the starter code library on github (16/7/2020)
- 
+[Udacity](https://github.com/udacity/reactnd-project-myreads-starter/blob/master/src/icons) - other svg icons taken from the starter code library on github (16/07/2020)
+
+[Pexel](https://www.pexels.com/search/books/) - Header background image (18/07/2020)
+
+[CSS-tricks](https://css-tricks.com/adding-stroke-to-web-text/) - accessible header text stroke / shadow / outline (18/07/2020)

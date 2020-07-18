@@ -19,14 +19,22 @@ footer {
 }
 
 .App-header {
-  background-color: lawngreen;
+  background-image: url('images/book-case.jpg');
+  background-size: contain;
   height: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 2.5em;
-  color: white;
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+      3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 .App-link {
@@ -73,6 +81,7 @@ footer {
 }
 
 .book-img {
+  height: 185px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -90,8 +99,8 @@ footer {
 }
 
 .book-control button {
-  border: none;
-  background-color: lawngreen;
+  border: 1px solid #000;
+  background: linear-gradient(120deg,#f8048a, #f17b0c);
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -101,6 +110,7 @@ footer {
 }
 
 .book-control button:hover {
+  border: 2px solid #000;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
 
@@ -153,8 +163,9 @@ footer {
   height: 50px;
   bottom: 40px;
   right: 30px;
-  background-color: lawngreen;
+  background: linear-gradient(120deg,#f8048a, #f17b0c);
   color: #fff;
+  border: 1px solid #000;
   border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
@@ -164,6 +175,9 @@ footer {
 }
 
 .search-books:hover {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #000;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.4);
 }
 
