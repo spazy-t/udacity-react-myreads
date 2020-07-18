@@ -6,18 +6,6 @@ import Rating from './Rating'
 
 class Book extends Component {
 
-    /*updateRating = (newRating) => {
-        console.log('update rating', newRating)
-        const currentBook = this.props.bookDeets
-        currentBook.rating = newRating
-        const updateDeets = {
-            shelf: currentBook.shelf,
-            book: currentBook
-        }
-
-        this.props.updateBook(updateDeets)
-    }*/
-
     updateShelf = (newShelf) => {
         const updateDeets = {
             shelf: newShelf,

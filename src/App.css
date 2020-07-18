@@ -89,7 +89,7 @@ footer {
   left: 10px;
 }
 
-.book-control button{
+.book-control button {
   border: none;
   background-color: lawngreen;
   width: 40px;
@@ -117,32 +117,14 @@ footer {
   pointer-events: none;
 }
 
-.option-select{
+.option-select {
   display: none;
 }
-
-/*.rating-star {
-  fill: yellow;
-}*/
 
 .rating-star:hover {
   fill: yellow;
   cursor: pointer;
 }
-
-/*.rating-star:hover ~ .rating-star {
-  fill: none;
-}
-
-.rating-container {
-  width: 100px;
-  height: 20px;
-  align-self: center;
-}
-
-.rating-container:not(:focus):not(:hover) .rating-star{
-  fill: none;
-}*/
 
 #title {
   font-weight: bold;

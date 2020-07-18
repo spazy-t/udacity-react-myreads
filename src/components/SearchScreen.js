@@ -12,6 +12,7 @@ https://github.com/udacity/reactnd-project-myreads-starter/blob/master/src/icons
 import backarrow from '../icons/backarrow.svg'
 
 class SearchScreen extends Component {
+    
     constructor(props) {
         super(props)
         //value is for the search input text

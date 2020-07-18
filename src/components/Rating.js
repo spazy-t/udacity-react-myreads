@@ -17,30 +17,33 @@ class Rating extends Component {
             rating: this.props.rating
         })
     }
-
+    //when the mouse rolls out of a star check the node to get releveant path to un-fill the correct stars
     revertStars = (evt) => {
-        //TODO: make this more reliable as sometimes the stars stay filled
-        const targetElement = evt.target.parentElement
-
-        if(targetElement.className === 'rating-container') {
-            const stars = targetElement.children
-            for(let star of stars) {
-                star.removeAttribute('style')
-            }
-            
-            this.setState((prevState) => ({
-                rating: prevState.rating
-            }))
+        let targetElement
+        
+        if(evt.target.nodeName === 'path') {
+            targetElement = evt.target.parentElement.parentElement
+        } else if(evt.target.nodeName === 'svg') {
+            targetElement = evt.target.parentElement
         }
+
+        const stars = targetElement.children
+        for (let star of stars) {
+            star.removeAttribute('style')
+        }
+        //reset the stars fill so previous rating state is shown when mouse rolls out
+        this.setState((prevState) => ({
+            rating: prevState.rating
+        }))
     }
     //on roll over check the target node name to get the correct path, therefore being able to fill the previous stars
     handleMouseEvent = (evt) => {
-        
+
         let target
         //check what the target needs to be in order to fill the correct element
-        if(evt.target.nodeName === 'path') {
+        if (evt.target.nodeName === 'path') {
             target = evt.target.parentElement
-        } else if(evt.target.nodeName === 'svg') {
+        } else if (evt.target.nodeName === 'svg') {
             target = evt.target
         }
         //setup the initial star and sibling elements
@@ -49,24 +52,23 @@ class Rating extends Component {
 
         target.setAttribute('style', 'fill: yellow')
         //whilst a next or previous sibling is valid fill or clear the fill
-        while(prevSibling) {
+        while (prevSibling) {
             prevSibling.setAttribute('style', 'fill: yellow')
             prevSibling = prevSibling.previousSibling
         }
 
-        while(nextSibling) {
+        while (nextSibling) {
             nextSibling.removeAttribute('style')
             nextSibling = nextSibling.nextSibling
         }
         //if the event is a click event grad the id and set as new rating
-        if(evt.type === 'click') {
+        if (evt.type === 'click') {
             this.setState({
                 rating: Number(target.id) + 1
             })
         }
     }
-    //TODO: instead of filling stars on click, use on click to pass back a new rating number then starchain matches up rating and stars
-    //then the star component sets it's own fill
+    
     //create a chain of star components for the rating of the book
     starChain = () => {
         const currentRating = this.state.rating
@@ -74,14 +76,14 @@ class Rating extends Component {
         let starChain = []
         //create an explicit number of stars
         for (let i = 0; i < 5; i++) {
-            if(i < currentRating) {
+            if (i < currentRating) {
                 fill = 'yellow'
             } else {
                 fill = 'none'
             }
 
             starChain.push(
-                <Star 
+                <Star
                     key={i}
                     id={i}
                     fill={fill}
@@ -96,7 +98,7 @@ class Rating extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className='rating-container'>
                 {
                     this.starChain().map(star => (
@@ -110,7 +112,6 @@ class Rating extends Component {
 
 Rating.propTypes = {
     rating: PropTypes.number
-    //updateRating: PropTypes.func
 }
 
 export default Rating

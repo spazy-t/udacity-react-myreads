@@ -4,6 +4,7 @@ import { Shelves } from '../globals'
 import droparrow from '../icons/droparrow.svg'
 
 class Control extends Component {
+    
     constructor(props) {
         super(props)
         this.state = {
