@@ -9,9 +9,21 @@ footer {
   min-height: 3em;
   text-align: left;
   justify-content: center;
+  align-content: flex-start;
   margin-left: 25px;
   text-decoration: underline;
+}
+
+footer button {
+  width: fit-content;
+  background: none;
+  border: none;
   cursor: pointer;
+  font-size: 1em;
+}
+
+footer button:focus {
+  outline: none;
 }
 
 .App {

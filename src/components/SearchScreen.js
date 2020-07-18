@@ -23,6 +23,15 @@ class SearchScreen extends Component {
 
         this.delayTimer = ''
     }
+    //init hide footer for blank screen don't need to top button yet
+    componentDidMount() {
+        document.querySelector('footer').setAttribute('style', 'display: none')
+    }
+
+    //called when link to root is clicked, just in case footer is not visible
+    showFooter = () => {
+        document.querySelector('footer').removeAttribute('style')
+    }
 
     //called when text entered into input, uses value to search books api then
     //sets state of current value and searched books to pass to books container
@@ -36,6 +45,8 @@ class SearchScreen extends Component {
                 searchedBooks: []
             })
             document.getElementById('no-books-found').setAttribute('style', 'display: none')
+            document.querySelector('footer').setAttribute('style', 'display: none')
+            clearTimeout(this.delayTimer)
             return
         } else {
             this.setState({
@@ -43,6 +54,7 @@ class SearchScreen extends Component {
             })
         }
         //use timer so it doesn't search on every single letter, waits for user to stop typing
+        //if books are found then save to an aary to pass into books container for comparison
         clearTimeout(this.delayTimer)
         this.delayTimer = setTimeout(() => {
             booksApi.search(this.state.value)
@@ -62,11 +74,15 @@ class SearchScreen extends Component {
 
     searchSuccessful = () => {
         const noBooksMsg = document.getElementById('no-books-found')
-
+        const footer = document.querySelector('footer')
+        //if there has been a search but no results, show text saying so and hide footer
+        //else there are books on screen so show footer and hide no books text
         if(this.state.value.length !== 0 && this.state.searchedBooks.length === 0) {
             noBooksMsg.setAttribute('style', 'display: block')
+            footer.setAttribute('style', 'display: none')
         } else {
-            noBooksMsg.setAttribute('style', 'display: none')
+            noBooksMsg.removeAttribute('style')
+            footer.removeAttribute('style')
         }
     }
 
@@ -74,7 +90,7 @@ class SearchScreen extends Component {
         return(
             <div className='search-screen'>
                 <div className='search-bar'>
-                    <Link to={'/'} id='back-btn'>
+                    <Link to={'/'} id='back-btn' onClick={this.showFooter}>
                         <img src={backarrow} alt='back arrow' className='back-button' />
                     </Link>
                     <form id='search-input'>

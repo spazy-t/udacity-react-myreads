@@ -32,13 +32,11 @@ class App extends Component {
   //clones the current shelved books and finds the book that matches the one who's shelf has changed
   //then replaces said books' shelf property to the new one and sets the new state to show this
   updateBook = (newDeets) => {
-    console.log('update book', newDeets.book)
     bookApi.update(newDeets.book, newDeets.shelf)
     .then(() =>
       bookApi.getAll()
     )
     .then(books => {
-      console.log('updated books', books)
       this.setState({
         shelvedBooks: [...books]
       })
@@ -49,16 +47,16 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' render={() => (
-            <div>
-              <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
-              <footer onClick={this.toTop}>To Top</footer>
-            </div>
+            <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
           )}
         />
         <Route path={'/search'} render={() => (
             <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
           )}
         />
+        <footer>
+          <button onClick={this.toTop}>To Top</button>
+        </footer>
       </div>
     )
   }
