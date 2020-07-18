@@ -36,3 +36,7 @@ This app also shows the average rating for a book should it have a rating when r
 [Pexels](https://www.pexels.com/search/books/) - Header background image (18/07/2020)
 
 [CSS-tricks](https://css-tricks.com/adding-stroke-to-web-text/) - accessible header text stroke / shadow / outline (18/07/2020)
+
+[MDN](https://developer.mozilla.org/en-US/) -  to look up array methods, node and element properties
+
+[stack-overflow](https://stackoverflow.com/) - to look up using spread operator, setTimeOut function
