@@ -5,7 +5,7 @@ import Book from './Book'
 
 const Shelf = props => {
     const {books, shelfDeets} = props
-
+    //create a shelf with name passed in and only show books that are currently on this shelf
     return(
         <div className='shelf'>
             <h2>{shelfDeets.title}</h2>

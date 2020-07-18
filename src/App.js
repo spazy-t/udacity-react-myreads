@@ -26,7 +26,7 @@ class App extends Component {
 
   toTop = (evt) => {
     evt.preventDefault()
-    window.scrollTo({ top: 0, left:0, behavior: 'smooth' })
+    window.scrollTo({top: 0, left:0, behavior: 'smooth'})
   }
 
   //clones the current shelved books and finds the book that matches the one who's shelf has changed

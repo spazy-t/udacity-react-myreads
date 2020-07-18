@@ -38,7 +38,6 @@ class Rating extends Component {
     }
     //on roll over check the target node name to get the correct path, therefore being able to fill the previous stars
     handleMouseEvent = (evt) => {
-
         let target
         //check what the target needs to be in order to fill the correct element
         if (evt.target.nodeName === 'path') {
@@ -76,11 +75,8 @@ class Rating extends Component {
         let starChain = []
         //create an explicit number of stars
         for (let i = 0; i < 5; i++) {
-            if (i < currentRating) {
-                fill = 'yellow'
-            } else {
-                fill = 'none'
-            }
+
+            i < currentRating ? fill = 'yellow' : fill = 'none'
 
             starChain.push(
                 <Star

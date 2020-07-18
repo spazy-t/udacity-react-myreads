@@ -44,8 +44,10 @@ class SearchScreen extends Component {
                 value: '',
                 searchedBooks: []
             })
+
             document.getElementById('no-books-found').setAttribute('style', 'display: none')
             document.querySelector('footer').setAttribute('style', 'display: none')
+            
             clearTimeout(this.delayTimer)
             return
         } else {

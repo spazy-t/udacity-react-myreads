@@ -16,7 +16,7 @@ class Book extends Component {
     }
 
     render() {
-        const { imageLinks, shelf, title, authors, averageRating } = this.props.bookDeets
+        const {imageLinks, shelf, title, authors, averageRating} = this.props.bookDeets
 
         return(
             <div className='book'>
