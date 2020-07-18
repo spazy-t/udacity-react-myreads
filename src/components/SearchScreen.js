@@ -47,7 +47,7 @@ class SearchScreen extends Component {
 
             document.getElementById('no-books-found').setAttribute('style', 'display: none')
             document.querySelector('footer').setAttribute('style', 'display: none')
-            
+
             clearTimeout(this.delayTimer)
             return
         } else {
@@ -73,7 +73,7 @@ class SearchScreen extends Component {
             })
         }, 1000)
     }
-
+    //called when promise resolves from books api search
     searchSuccessful = () => {
         const noBooksMsg = document.getElementById('no-books-found')
         const footer = document.querySelector('footer')
@@ -87,7 +87,7 @@ class SearchScreen extends Component {
             footer.removeAttribute('style')
         }
     }
-
+    //show search input and only the books container if there are books to show
     render() {
         return(
             <div className='search-screen'>

@@ -13,18 +13,18 @@ class Control extends Component {
         //add extra none option to show it either doesn't belong to a shelf or to remove from a shelf
         this.shelves = [...Shelves, {title: 'None', name: 'none'}]
     }
-
+    //if it has a shelf assigned already then re-initialise the state to it so it auto shows correct shelf in controll dropdown
     componentDidMount() {
         this.setState({
             currentShelf: this.props.currentShelf
         })
     }
-
+    //when controll is clicked show selection dropdown for shelves
     showOptions = (evt) => {
         const targetButton = evt.target
         targetButton.nextSibling.classList.toggle('option-select')
     }
-
+    //if an option for the selection is clicked / changed change shelf state by calling passed in function and close dropdown
     handleChange = (evt) => {
         this.setState({
             currentShelf: evt.target.value

@@ -11,7 +11,7 @@ class Rating extends Component {
     state = {
         rating: 0
     }
-
+    //when mounted reset initial rating state (if one is passed through) therefore, able to show show any saved ratings from the api
     componentDidMount() {
         this.setState({
             rating: this.props.rating
@@ -26,7 +26,7 @@ class Rating extends Component {
         } else if(evt.target.nodeName === 'svg') {
             targetElement = evt.target.parentElement
         }
-
+        //grab all the stars in the star container
         const stars = targetElement.children
         for (let star of stars) {
             star.removeAttribute('style')
@@ -75,7 +75,7 @@ class Rating extends Component {
         let starChain = []
         //create an explicit number of stars
         for (let i = 0; i < 5; i++) {
-
+            //if current star is less than the passed in rating set it's fill to yello, otherwise leave transparent
             i < currentRating ? fill = 'yellow' : fill = 'none'
 
             starChain.push(

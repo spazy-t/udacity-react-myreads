@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     shelvedBooks: []
   }
-
+  //grab all currently shelved books on the server
   componentDidMount() {
     bookApi.getAll()
     .then((books) => {
@@ -23,7 +23,7 @@ class App extends Component {
       }
     })
   }
-
+  //scroll page to the top when footer button clicked
   toTop = (evt) => {
     evt.preventDefault()
     window.scrollTo({top: 0, left:0, behavior: 'smooth'})
