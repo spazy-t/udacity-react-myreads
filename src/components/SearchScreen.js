@@ -97,6 +97,7 @@ class SearchScreen extends Component {
                     </Link>
                     <form id='search-input'>
                         <input
+                            autoFocus
                             type='text'
                             placeholder='Search Books'
                             onChange={this.handleChange}

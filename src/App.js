@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 /**Component and api imports */
 import * as bookApi from './BooksApi'
 import SearchScreen from './components/SearchScreen'
 import ShelfScreen from './components/ShelfScreen'
+import NoMatch from './components/NoMatch'
 
 class App extends Component {
   
@@ -46,14 +47,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path='/' render={() => (
-            <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
-          )}
-        />
-        <Route path={'/search'} render={() => (
-            <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
-          )}
-        />
+        <Switch>
+          <Route exact path='/' render={() => (
+              <ShelfScreen shelvedBooks={this.state.shelvedBooks} updateBook={this.updateBook} />
+            )}
+          />
+          <Route path={'/search'} render={() => (
+              <SearchScreen updateBook={this.updateBook} shelvedBooks={this.state.shelvedBooks} />
+            )}
+          />
+          <Route>
+            <NoMatch />
+          </Route>
+        </Switch>
         <footer>
           <button onClick={this.toTop}>To Top</button>
         </footer>

@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 
 footer {
@@ -275,4 +276,38 @@ footer button:focus {
   #search-input input {
     font-size: 1.8em;
   }
+}
+
+/**
+* 404 page
+*/
+.error-page {
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: url('images/error-page.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.error-text {
+  padding: 0 10px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+      3px 3px 0 #000,
+     -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+
+.to-homepage {
+  font-size: 2em;
+  font-weight: bold;
+  color: #000;
 }
